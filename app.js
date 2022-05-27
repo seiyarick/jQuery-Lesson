@@ -63,11 +63,54 @@
 //   イベント発生時に行われる処理
 // });
 
+// $(function(){
+//   $('.box1').on('click',function(){
+//     $('.box1').addClass('box1-ext');
+//   });
+//   $('.box1').mouseout(function(){
+//     $('.box1').removeClass('box1-ext');
+//   });
+// });
+// ------------------------------
+
+// 「this」「children」
+// this・・・イベントが発生した要素のみを変化させる
+// children・・・HTML要素直下の全ての要素を取得できる
+
+// ーーーーーーーーーーーーーーーーーーー
+// thisの記述　①、②共に同じ意味
+
+// ①
+// $(function(){
+//   $('.bg1').on('click',function(){
+//     $('.bg1').slideUp();
+//   });
+
+//   $('.bg2').on('click',function(){
+//     $('.bg2').slideUp();
+//   });
+
+//   $('.bg3').on('click',function(){
+//     $('.bg3').slideUp();
+//   });
+
+//   $('.bg4').on('click',function(){
+//     $('.bg4').slideUp();
+//   });
+// });
+
+// ②
+// $(function(){
+//   $('.box1').on('click',function(){
+//     $(this).slideUp();
+//   });
+// });
+// ーーーーーーーーーーーーーーーーーー
+
+// childrenの記述
+
 $(function(){
-  $('.box1').on('click',function(){
-    $('.box1').addClass('box1-ext');
-  });
-  $('.box1').mouseout(function(){
-    $('.box1').removeClass('box1-ext');
+  $('button').on('click',function(){
+    $('ul').children().css('color','red');
   });
 });
